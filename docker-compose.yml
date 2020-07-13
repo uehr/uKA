@@ -1,0 +1,28 @@
+version: "3.1"
+services:
+    uka-db:
+        build: ./mysql
+        volumes:
+            - ./mysql-data:/var/lib/mysql:cached
+            - ./mysql-entrypoint-initdb.d:/docker-entrypoint-initdb.d:cached
+        environment:
+            MYSQL_DATABASE: uka
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
+            MYSQL_ROOT_PASSWORD: rootpassword
+        ports:
+            - "3306:3306"
+        tty: true
+    uka-backend:
+        build: ./app
+        depends_on: 
+            - uka-db
+        links:
+            - uka-db
+        environment:
+            TZ: Japan
+        ports:
+            - "80:80"
+        working_dir: /app
+        command: java -jar target/uka-backend.jar
+        tty: true
