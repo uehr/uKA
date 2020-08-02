@@ -1,9 +1,23 @@
-FROM amazoncorretto:latest
+FROM maven:3-jdk-8-alpine
+ADD . /code
+RUN echo "Build jar" && \
+    echo '{ "allow_root": true }' > /root/.bowerrc && \
+    cd /code && \
+    mvn clean package -DskipTests && \
+    mv /code/target/*.jar /app.war
 
-ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto
+FROM openjdk:8-jre-alpine
+ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
+    SLEEP=0 \
+    JAVA_OPTS=""
 
-EXPOSE 80
+ENV PORT 8080
+EXPOSE 8080
 
-ADD . /app
-WORKDIR /app
-RUN ./mvnw clean package -DskipTests=true
+RUN apk update && apk upgrade \
+    && apk --update add tzdata nss \
+    && apk add --no-cache git
+CMD echo "The application will start in ${SLEEP}s..." && \
+    sleep ${SLEEP} && \
+    java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -jar /app.war
+COPY --from=0 /app.war .
