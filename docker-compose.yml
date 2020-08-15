@@ -21,8 +21,8 @@ services:
             - uka-db
         environment:
             TZ: Japan
+            JAVA_OPS: -Xmx512m
+            SLEEP: 0
         ports:
-            - "80:80"
-        working_dir: /app
-        command: java -jar target/uka-backend.jar
+            - "8080:8080"
         tty: true
