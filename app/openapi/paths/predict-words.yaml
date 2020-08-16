@@ -1,0 +1,62 @@
+get:
+  summary: 設定中のトレンド予測ワードを取得
+  description: 要求権限：USER以上
+  operationId: getPredictWords
+  tags:
+    - predict_word
+  responses:
+    '200':
+      description: 取得成功
+      content:
+        application/json:
+          schema:
+            $ref: ../components/predict-word.yaml/#/PredictWords
+    '401':
+      description: 認証エラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
+    '500':
+      description: 予期せぬエラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
+
+post:
+  summary: トレンド予測ワードを設定
+  description: 要求権限：USER以上
+  operationId: setPredictWords
+  tags:
+    - predict_word
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            predict_words:
+              type: array
+              items:
+                type: string
+  responses:
+    '204':
+      description: 更新成功
+    '401':
+      description: 認証エラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
+    '400':
+      description: リクエストパラメータが不正
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
+    '500':
+      description: 予期せぬエラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error

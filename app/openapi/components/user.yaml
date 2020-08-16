@@ -1,0 +1,24 @@
+User:
+  type: object
+  required:
+    - id
+    - display_name
+    - point
+    - icon_url
+  properties:
+    id:
+      type: string
+      minLength: 1
+      maxLength: 15
+    display_name:
+      type: string
+      minLength: 1
+      maxLength: 50
+    point:
+      type: integer
+      format: int64
+    icon_url:
+      type: string
+    rank:
+      type: integer
+      format: int64

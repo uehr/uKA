@@ -1,0 +1,31 @@
+get:
+  summary: ユーザのプロフィールを取得 
+  description: 要求権限：なし
+  operationId: userProfile
+  tags:
+    - users
+  parameters:
+    - in: path
+      name: user_id
+      schema:
+        type: string
+      required: true
+  responses:
+    '200':
+      description: 取得成功
+      content:
+        application/json:
+          schema:
+            $ref: ../components/user.yaml/#/User
+    '400':
+      description: リクエストパラメータが不正
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
+    '500':
+      description: 予期せぬエラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error

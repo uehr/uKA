@@ -1,0 +1,35 @@
+get:
+  summary: Get session
+  description: 要求権限：なし
+  operationId: session
+  tags:
+    - sessions
+  responses:
+    '200':
+      description: 取得成功
+      content:
+        application/json:
+          schema:
+            $ref: ../components/user.yaml/#/User
+    '500':
+      description: 予期せぬエラー 
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
+
+delete:
+  summary: Delete session
+  description: 要求権限：USER以上
+  operationId: logout
+  tags:
+    - sessions
+  responses:
+    '204':
+      description: 削除成功
+    '500':
+      description: 予期せぬエラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error

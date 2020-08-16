@@ -1,0 +1,19 @@
+get:
+  summary: ユーザランキング
+  description: 要求権限：なし
+  operationId: userRanking
+  tags:
+    - rakings
+  responses:
+    '200':
+      description: 取得成功
+      content:
+        application/json:
+          schema:
+            $ref: ../components/user.yaml/#/User
+    '500':
+      description: 予期せぬエラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error

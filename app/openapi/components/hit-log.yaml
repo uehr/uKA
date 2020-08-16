@@ -1,0 +1,21 @@
+HitLog:
+  required:
+    - date 
+    - rank
+    - word
+  properties:
+    date:
+      type: string
+      format: date-time
+    rank:
+      type: integer
+      format: int32
+    word:
+      type: string
+      minLength: 3 
+      maxLength: 280
+
+HitLogs:
+  type: array
+  items:
+    $ref: "#/HitLog"

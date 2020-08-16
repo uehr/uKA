@@ -1,0 +1,30 @@
+TrendContent:
+  required:
+    - word
+    - rank
+  properties:
+    rank:
+      type: integer
+      format: int32
+    word:
+      type: string
+      minLength: 3 
+      maxLength: 280
+
+Trend:
+  required:
+    - trends
+    - date
+  properties:
+    trends:
+      type: array
+      items:
+        $ref: "#/TrendContent"
+    date:
+      type: string
+      format: date-time
+
+Trends:
+  type: array
+  items:
+    $ref: "#/Trend"

@@ -1,0 +1,43 @@
+get:
+  summary: 任意のユーザの予測ヒット履歴を取得 
+  description: 要求権限：なし
+  operationId: hitLog
+  tags:
+    - hit_logs
+  parameters:
+    - in: query
+      name: user_id
+      schema:
+        type: string
+      required: true
+    - in: query
+      name: start
+      schema:
+        type: integer
+        default: 0
+      required: false
+    - in: query
+      name: limit
+      schema:
+        type: integer
+        default: 6
+      required: false
+  responses:
+    '200':
+      description: 取得成功
+      content:
+        application/json:
+          schema:
+            $ref: ../components/hit-log.yaml/#/HitLogs
+    '400':
+      description: リクエストパラメータが不正
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
+    '500':
+      description: 予期せぬエラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error

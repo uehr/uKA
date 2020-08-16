@@ -1,0 +1,7 @@
+PredictWord:
+  type: string
+
+PredictWords:
+  type: array
+  items:
+    $ref: "#/PredictWord"

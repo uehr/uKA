@@ -1,0 +1,68 @@
+get:
+  summary: ログインユーザ情報を取得
+  description: 要求権限：USER以上
+  operationId: myProfile
+  tags:
+    - users
+  responses:
+    '200':
+      description: 取得成功
+      content:
+        application/json:
+          schema:
+            $ref: ../components/user.yaml/#/User
+    '401':
+      description: 認証エラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
+    '500':
+      description: 予期せぬエラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
+
+patch:
+  summary: ログインユーザ情報を更新
+  description: 要求権限：USER以上
+  operationId: updateProfile
+  tags:
+    - users
+  requestBody:
+    content:
+      application/json:
+        schema:
+          properties:
+            display_name:
+              type: string
+              minLength: 1
+              maxLength: 50
+            join_rank:
+              type: boolean
+  responses:
+    '200':
+      description: 更新成功
+      content:
+        application/json:
+          schema:
+            $ref: ../components/user.yaml/#/User
+    '401':
+      description: 認証エラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
+    '400':
+      description: リクエストパラメータが不正
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
+    '500':
+      description: 予期せぬエラー
+      content:
+        application/json:
+          schema:
+            $ref: ../components/error.yaml/#/Error
