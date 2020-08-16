@@ -1,10 +1,17 @@
 FROM maven:3-jdk-8-alpine
-ADD . /code
-RUN echo "Build jar" && \
-    echo '{ "allow_root": true }' > /root/.bowerrc && \
-    cd /code && \
-    mvn clean package -DskipTests && \
-    mv /code/target/*.jar /app.war
+
+RUN echo "Build jar"
+RUN echo '{ "allow_root": true }' > /root/.bowerrc
+WORKDIR /code
+
+# 依存関係の解決
+ADD pom.xml .
+RUN mvn -B dependency:go-offline clean
+
+# ソースコードのビルド
+ADD . .
+RUN mvn -B clean package -DskipTests
+RUN mv /code/target/*.jar /app.war
 
 FROM openjdk:8-jre-alpine
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
