@@ -27,3 +27,5 @@ paths:
     $ref: ./paths/ranking.yaml
   /predict_words:
     $ref: ./paths/predict-words.yaml
+  /version:
+    $ref: ./paths/version.yaml
