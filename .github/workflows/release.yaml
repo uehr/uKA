@@ -13,10 +13,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: debug
+    - name: Get Branch Name
+      uses: nelonoel/branch-name@v1
+
+    - name: Debug
       run: |
         echo ${GITHUB_REF#refs/tags/}
-        echo ${GITHUB_REF#refs/heads/}
+        echo ${BRANCH_NAME}
 
     # - name: Configure AWS credentials
     #   uses: aws-actions/configure-aws-credentials@v1
