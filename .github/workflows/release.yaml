@@ -13,7 +13,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Extract Branch/Tag/VERSION/DEPLOY_TO Envs
+    - name: Extract Envs
       run: |
         echo "::set-env name=BRANCH::${GITHUB_REF#refs/heads/}"
         echo "::set-env name=TAG::${GITHUB_REF#refs/tags/}"
