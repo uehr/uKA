@@ -3,8 +3,7 @@ name: release
 on:
  push:
   tags:
-    # - "v¥+-(stg|prd)"
-    - "*"
+    - "v¥+-(stg|prd)"
 
 jobs:
   test:
@@ -18,8 +17,8 @@ jobs:
       run: |
         echo "::set-env name=BRANCH::${GITHUB_REF#refs/heads/}"
         echo "::set-env name=TAG::${GITHUB_REF#refs/tags/}"
-        echo "::set-env name=VERSION::${TAG//-*/}"
-        echo "::set-env name=DEPLOY_TO::${TAG//*-/}"
+        echo "::set-env name=VERSION::${TAG/-*/}"
+        echo "::set-env name=DEPLOY_TO::${TAG/*-/}"
 
     - name: Debug
       run: |
