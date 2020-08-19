@@ -15,13 +15,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Get latest tag
-      id: previoustag
-      uses: "WyriHaximus/github-action-get-previous-tag@master"
-
     - name: Extract Branch/Tag Names
       run: |
         echo "::set-env name=BRANCH::${GITHUB_REF#refs/heads/}"
+        echo "::set-env name=TAG::${GITHUB_REF#refs/tags/}"
 
     - name: Debug
       run: |
