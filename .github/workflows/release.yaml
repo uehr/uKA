@@ -3,7 +3,7 @@ name: release
 on:
  push:
   tags:
-    - "v¥+-(stg|prd)"
+    - "v¥S+-(stg|prd)"
 
 jobs:
   test:
