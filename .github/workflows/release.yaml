@@ -5,7 +5,7 @@ on:
   branches:
     - develop
   tags:
-    - "v*"
+    - "v*-[stg|prd]"
 
 jobs:
   test:
@@ -19,11 +19,15 @@ jobs:
       run: |
         echo "::set-env name=BRANCH::${GITHUB_REF#refs/heads/}"
         echo "::set-env name=TAG::${GITHUB_REF#refs/tags/}"
+        echo "::set-env name=VERSION::${TAG//-*/}"
+        echo "::set-env name=DEPLOY_TO::${TAG//*-/}"
 
     - name: Debug
       run: |
         echo ${BRANCH}
         echo ${TAG}
+        echo ${VERSION}
+        echo ${DEPLOY_TO}
 
     # - name: Configure AWS credentials
     #   uses: aws-actions/configure-aws-credentials@v1
