@@ -39,6 +39,6 @@ jobs:
         ECR_REPOSITORY: uka-backend
         IMAGE_TAG: ${GITHUB_REF#refs/tags/}
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$VERSION .
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$VERSION ./app
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$VERSION
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$VERSION"
