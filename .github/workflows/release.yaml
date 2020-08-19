@@ -17,6 +17,8 @@ jobs:
       run: |
         echo "::set-env name=BRANCH::${GITHUB_REF#refs/heads/}"
         echo "::set-env name=TAG::${GITHUB_REF#refs/tags/}"
+        TAG=${GITHUB_REF#refs/tags/}
+        echo $TAG
         echo "::set-env name=VERSION::${TAG/-*/}"
         echo "::set-env name=DEPLOY_TO::${TAG/*-/}"
         echo ${TAG/-*/}
