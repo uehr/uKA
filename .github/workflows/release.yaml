@@ -45,3 +45,11 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$VERSION
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$DEPLOY_TO
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$VERSION"
+
+    - name: Apply version up to Amazon ECR
+      id: apply-image
+      env:
+        ECS_SERVICE: uka-backend
+        ECS_CLUSTER: uka
+      run: |
+        aws ecs update-service --force-new-deployment --service $ECS_SERVICE --cluster $ECS_CLUSTER
