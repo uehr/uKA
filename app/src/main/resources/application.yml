@@ -3,7 +3,7 @@ uka:
 
 spring:
     datasource:
-        url: jdbc:mysql://uka-db/uka
+        url: jdbc:mysql://localhost:3306/uka
         username: user
         password: password
         driver-class-name: com.mysql.cj.jdbc.Driver

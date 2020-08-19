@@ -21,7 +21,7 @@ services:
             - uka-db
         environment:
             TZ: Japan
-            JAVA_OPS: -Xmx512m
+            JAVA_OPS: -Xmx512m -XX:TieredStopAtLevel=1
             SLEEP: 0
         ports:
             - "8080:8080"

@@ -15,8 +15,7 @@ RUN mv /code/target/*.jar /app.war
 
 FROM openjdk:8-jre-alpine
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
-    SLEEP=0 \
-    JAVA_OPTS=""
+    SLEEP=0
 
 ENV PORT 8080
 EXPOSE 8080
@@ -26,5 +25,6 @@ RUN apk update && apk upgrade \
     && apk add --no-cache git
 CMD echo "The application will start in ${SLEEP}s..." && \
     sleep ${SLEEP} && \
-    java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -jar /app.war
+    ((sleep 180 && curl -f http://localhost:8080/api/v1/version) & ) && \
+    java -Xmx512m -XX:TieredStopAtLevel=1 -Djava.security.egd=file:/dev/./urandom -jar /app.war
 COPY --from=0 /app.war .
