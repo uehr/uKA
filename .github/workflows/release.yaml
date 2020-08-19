@@ -19,6 +19,8 @@ jobs:
         echo "::set-env name=TAG::${GITHUB_REF#refs/tags/}"
         echo "::set-env name=VERSION::${TAG/-*/}"
         echo "::set-env name=DEPLOY_TO::${TAG/*-/}"
+        echo ${TAG/-*/}
+        echo ${TAG/*-/}
 
     - name: Debug
       run: |
