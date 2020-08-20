@@ -50,6 +50,6 @@ jobs:
       id: apply-image
       env:
         ECS_SERVICE: uka-backend
-        ECS_CLUSTER: uka
+        ECS_CLUSTER: uka-${DEPLOY_TO}
       run: |
         aws ecs update-service --force-new-deployment --service $ECS_SERVICE --cluster $ECS_CLUSTER
