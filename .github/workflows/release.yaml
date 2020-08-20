@@ -44,7 +44,7 @@ jobs:
         docker tag $ECR_REPOSITORY:latest $ECR_REGISTRY/$ECR_REPOSITORY:$DEPLOY_TO-release
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$DEPLOY_TO-release
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$VERSION"
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$TAG"
 
     - name: Apply version up to Amazon ECR
       id: apply-image
