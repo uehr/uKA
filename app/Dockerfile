@@ -17,14 +17,16 @@ FROM openjdk:8-jre-alpine
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
     SLEEP=0
 
-ENV PORT 8080
-EXPOSE 8080
+ENV PORT 80
+EXPOSE 80
 
 RUN apk update && apk upgrade \
     && apk --update add tzdata nss \
-    && apk add --no-cache git
+    && apk add --no-cache git \
+    && apk add --no-cache curl
+
 CMD echo "The application will start in ${SLEEP}s..." && \
     sleep ${SLEEP} && \
-    ((sleep 180 && curl -f http://localhost:8080/api/v1/version) & ) && \
-    java -Xmx512m -XX:TieredStopAtLevel=1 -Djava.security.egd=file:/dev/./urandom -jar /app.war
+    java -Xmx512m -XX:TieredStopAtLevel=1 -Djava.security.egd=file:/dev/./urandom -jar /app.war && \
+    curl -s https://ifconfig.me
 COPY --from=0 /app.war .
