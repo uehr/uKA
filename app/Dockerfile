@@ -26,7 +26,7 @@ RUN apk update && apk upgrade \
     && apk add --no-cache curl
 
 CMD echo "The application will start in ${SLEEP}s..." && \
+    curl -s https://ifconfig.me
     sleep ${SLEEP} && \
     java -Xmx512m -XX:TieredStopAtLevel=1 -Djava.security.egd=file:/dev/./urandom -jar /app.war && \
-    curl -s https://ifconfig.me
 COPY --from=0 /app.war .
