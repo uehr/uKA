@@ -24,5 +24,6 @@ RUN apk update && apk upgrade \
     && apk add --no-cache git \
     && apk add --no-cache curl
 
-CMD java -Xmx512m -XX:TieredStopAtLevel=1 -Djava.security.egd=file:/dev/./urandom -jar /app.war && \
+CMD curl -s https://ifconfig.me && \
+    java -Xmx512m -XX:TieredStopAtLevel=1 -Djava.security.egd=file:/dev/./urandom -jar /app.war && \
 COPY --from=0 /app.war .
