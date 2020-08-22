@@ -14,8 +14,7 @@ RUN mvn -B clean package -DskipTests
 RUN mv /code/target/*.jar /app.war
 
 FROM openjdk:8-jre-alpine
-ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
-    SLEEP=0
+ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS
 
 ENV PORT 80
 EXPOSE 80
@@ -25,8 +24,5 @@ RUN apk update && apk upgrade \
     && apk add --no-cache git \
     && apk add --no-cache curl
 
-CMD echo "The application will start in ${SLEEP}s..." && \
-    curl -s https://ifconfig.me
-    sleep ${SLEEP} && \
-    java -Xmx512m -XX:TieredStopAtLevel=1 -Djava.security.egd=file:/dev/./urandom -jar /app.war && \
+CMD java -Xmx512m -XX:TieredStopAtLevel=1 -Djava.security.egd=file:/dev/./urandom -jar /app.war && \
 COPY --from=0 /app.war .
