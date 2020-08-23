@@ -81,5 +81,5 @@ jobs:
         sudo npm install -g swagger-merger
         sudo npm install -g redoc-cli
         swagger-merger -i app/openapi/index.yaml -o merged.yaml
-        redoc-cli bundle merged.yaml -o document.html
-        aws s3 cp document.html s3://uka-api/ --acl public-read
+        redoc-cli bundle merged.yaml -o document-$DEPLOY_TO.html
+        aws s3 cp document-$DEPLOY_TO.html s3://uka-api/ --acl public-read
