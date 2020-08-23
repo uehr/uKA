@@ -78,6 +78,6 @@ jobs:
     - name: Build and Deploy
       run: |
         sudo apt install -y nodejs npm
-        npm install -g swagger-merger
+        sudo npm install -g swagger-merger
         swagger-merger -i app/openapi/index.yaml -o document.yaml
         aws s3 cp document.yaml s3://uka-api/ --acl public-read
