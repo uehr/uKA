@@ -28,16 +28,16 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/hit-log.yaml/#/HitLogs
+            $ref: ../components/hit-log.yaml#/HitLog
     '400':
       description: リクエストパラメータが不正
       content:
         application/json:
           schema:
-            $ref: ../components/error.yaml/#/Error
+            $ref: ../components/error.yaml#/Error
     '500':
       description: 予期せぬエラー
       content:
         application/json:
           schema:
-            $ref: ../components/error.yaml/#/Error
+            $ref: ../components/error.yaml#/Error

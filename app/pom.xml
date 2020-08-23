@@ -86,7 +86,7 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<inputSpec>${project.basedir}/openapi/uka.yaml</inputSpec>
+							<inputSpec>${project.basedir}/openapi/merged.yaml</inputSpec>
 							<generatorName>spring</generatorName>
 							<apiPackage>co.uehr.uka.api</apiPackage>
 							<modelPackage>co.uehr.uka.model</modelPackage>

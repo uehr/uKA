@@ -2,6 +2,9 @@ PredictWord:
   type: string
 
 PredictWords:
-  type: array
-  items:
-    $ref: "#/PredictWord"
+  type: object
+  properties:
+    predict_words:
+      type: array
+      items:
+        $ref: "./predict-word.yaml#PredictWord"

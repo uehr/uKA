@@ -1,4 +1,5 @@
 Error:
+  type: object
   required:
     - code 
     - message

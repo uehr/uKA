@@ -8,8 +8,14 @@ WORKDIR /code
 ADD pom.xml .
 RUN mvn -B dependency:go-offline clean
 
-# ソースコードのビルド
 ADD . .
+
+# OpenAPI定義をマージ
+RUN apk add --update npm
+RUN npm install -g swagger-merger
+RUN swagger-merger -i openapi/index.yaml -o  openapi/merged.yaml
+
+# ソースコードのビルド
 RUN mvn -B clean package -DskipTests
 RUN mv /code/target/*.jar /app.war
 

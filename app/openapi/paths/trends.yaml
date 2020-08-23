@@ -10,10 +10,10 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/trend.yaml/#/Trends
+            $ref: ../components/trend.yaml#/Trends
     '500':
       description: 予期せぬエラー
       content:
         application/json:
           schema:
-            $ref: ../components/error.yaml/#/Error
+            $ref: ../components/error.yaml#/Error

@@ -1,4 +1,5 @@
 TrendContent:
+  type: object
   required:
     - word
     - rank
@@ -12,6 +13,7 @@ TrendContent:
       maxLength: 280
 
 Trend:
+  type: object
   required:
     - trends
     - date
@@ -19,12 +21,17 @@ Trend:
     trends:
       type: array
       items:
-        $ref: "#/TrendContent"
+        $ref: "./trend.yaml#TrendContent"
     date:
       type: string
       format: date-time
 
 Trends:
-  type: array
-  items:
-    $ref: "#/Trend"
+  type: object
+  required:
+    - trends
+  properties:
+    trends:
+      type: array
+      items:
+        $ref: "./trend.yaml#/Trend"

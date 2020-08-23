@@ -1,4 +1,5 @@
 HitLog:
+  type: object
   required:
     - date 
     - rank
@@ -16,6 +17,9 @@ HitLog:
       maxLength: 280
 
 HitLogs:
-  type: array
-  items:
-    $ref: "#/HitLog"
+  type: object
+  properties:
+    hit-logs:
+      type: array
+      items:
+        $ref: "./hit-log.yaml#/HitLog"
