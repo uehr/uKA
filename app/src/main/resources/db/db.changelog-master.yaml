@@ -1,0 +1,3 @@
+databaseChangeLog:
+- include:
+    file: db/changelogs/v1_userconnection_tbl.yaml
