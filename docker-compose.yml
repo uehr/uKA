@@ -23,6 +23,8 @@ services:
             UKA_DB_URL: uka-db/uka
             UKA_DB_USER: user
             UKA_DB_PASSWORD: password
+            UKA_TWITTER_ID: ${UKA_TWITTER_ID}
+            UKA_TWITTER_SECRET: ${UKA_TWITTER_SECRET}
             TZ: Japan
             JAVA_OPS: -Xmx512m -XX:TieredStopAtLevel=1
             SLEEP: 0
