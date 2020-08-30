@@ -29,6 +29,9 @@ security:
 
 server:
     port: ${PORT:80}
+    Tomcat:
+        remote_ip_header: x-forwarded-for
+        protocol_header: x-forwarded-proto
 
 logging:
     level:
