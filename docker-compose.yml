@@ -20,6 +20,9 @@ services:
         links:
             - uka-db
         environment:
+            UKA_DB_URL: uka-db/uka
+            UKA_DB_USER: user
+            UKA_DB_PASSWORD: password
             TZ: Japan
             JAVA_OPS: -Xmx512m -XX:TieredStopAtLevel=1
             SLEEP: 0
