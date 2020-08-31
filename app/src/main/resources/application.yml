@@ -1,5 +1,6 @@
 uka:
     version: 0.0.10
+    callbackURL: "https://www.google.com" 
 
 spring:
     datasource:
@@ -24,6 +25,7 @@ liquibase:
     enabled: true
 
 security:
+    require-ssl: true
     basic:
         enabled: false
 
