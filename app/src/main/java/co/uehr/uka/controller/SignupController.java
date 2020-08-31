@@ -24,7 +24,7 @@ public class SignupController {
     @Bean
     public ProviderSignInController providerSignInController(ConnectionFactoryLocator connectionFactoryLocator, UsersConnectionRepository usersConnectionRepository, SignInAdapter signInAdapter) {
         ProviderSignInController providerSignInController = new ProviderSignInController(connectionFactoryLocator, usersConnectionRepository, signInAdapter);
-        providerSignInController.setApplicationUrl("https://uka-api-staging.uehr.co");
+        // providerSignInController.setApplicationUrl("https://uka-api-staging.uehr.co");
         return providerSignInController;
     }
 

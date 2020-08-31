@@ -1,3 +1,9 @@
+const url = location.href
+if(url.indexOf('http:') >= 0 && window.location.hostname != "localhost") {
+    const newUrl = url.replace('http:', 'https:');
+    location.replace(newUrl);
+}
+
 const LoginForm = () => (
     <form action="/signin/twitter" method="post">
         <h1>Please login</h1>
