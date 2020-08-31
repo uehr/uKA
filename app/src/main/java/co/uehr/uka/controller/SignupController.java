@@ -21,13 +21,6 @@ public class SignupController {
     private final ProviderSignInUtils signInUtils;
     protected static final Logger log = LoggerFactory.getLogger(AuthUtil.class);
 
-    @Bean
-    public ProviderSignInController providerSignInController(ConnectionFactoryLocator connectionFactoryLocator, UsersConnectionRepository usersConnectionRepository, SignInAdapter signInAdapter) {
-        ProviderSignInController providerSignInController = new ProviderSignInController(connectionFactoryLocator, usersConnectionRepository, signInAdapter);
-        // providerSignInController.setApplicationUrl("https://uka-api-staging.uehr.co");
-        return providerSignInController;
-    }
-
     @Autowired
     public SignupController(ConnectionFactoryLocator connectionFactoryLocator, UsersConnectionRepository connectionRepository) {
         signInUtils = new ProviderSignInUtils(connectionFactoryLocator, connectionRepository);
