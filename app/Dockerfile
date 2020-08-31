@@ -4,19 +4,21 @@ RUN echo "Build jar"
 RUN echo '{ "allow_root": true }' > /root/.bowerrc
 WORKDIR /code
 
+RUN apk add npm
+RUN npm install -g swagger-merger
+
 # 依存関係の解決
 ADD pom.xml .
-RUN mvn -B dependency:go-offline clean
+ADD openapi openapi
+# OpenAPI定義をマージ
+RUN swagger-merger -i openapi/index.yaml -o  openapi/merged.yaml
+RUN mvn -B package -DskipTests --fail-never
 
+# ソースコードのコピー
 ADD . .
 
-# OpenAPI定義をマージ
-RUN apk add --update npm
-RUN npm install -g swagger-merger
-RUN swagger-merger -i openapi/index.yaml -o  openapi/merged.yaml
-
 # ソースコードのビルド
-RUN mvn -B clean package -DskipTests
+RUN mvn -B package -DskipTests
 RUN mv /code/target/*.jar /app.war
 
 FROM openjdk:8-jre-alpine
