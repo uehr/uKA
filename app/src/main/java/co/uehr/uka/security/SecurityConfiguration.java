@@ -39,6 +39,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/api/v1/session").permitAll()
+                .antMatchers("/api/v1/version").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .antMatchers("/api/v1/**").authenticated()
                 .and()
