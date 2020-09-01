@@ -1,3 +1,5 @@
 databaseChangeLog:
 - include:
     file: db/changelogs/v1_userconnection_tbl.yaml
+- include:
+    file: db/changelogs/v2_trend_tbl.yaml

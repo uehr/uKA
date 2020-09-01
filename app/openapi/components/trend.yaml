@@ -31,7 +31,7 @@ Trends:
   required:
     - trends
   properties:
-    trends:
+    trend_words:
       type: array
       items:
         $ref: "./trend.yaml#/Trend"

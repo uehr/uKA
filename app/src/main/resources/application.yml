@@ -1,5 +1,9 @@
 uka:
     version: 0.0.10
+    fetch-new-trends-cron: "0 0 * * * *"
+    delete-old-trends-cron: "0 0 * * * *"
+    trend-woeid: 23424856
+    trend-retention-hours: 24
 
 spring:
     datasource:
@@ -17,6 +21,8 @@ spring:
         twitter:
             appId: ${UKA_TWITTER_ID}
             appSecret: ${UKA_TWITTER_SECRET}
+            appToken: ${UKA_TWITTER_TOKEN}
+            appTokenSecret: ${UKA_TWITTER_TOKEN_SECRET}
         auto-conection-views: false
 
 liquibase:

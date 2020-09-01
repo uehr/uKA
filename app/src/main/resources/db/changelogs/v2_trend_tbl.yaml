@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: confrage
+      changes:
+        - createTable:
+            tableName: trend
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: trending_at
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: rank
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: word
+                  type: varchar(280)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: datetime
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: datetime
+                  constraints:
+                    nullable: false
