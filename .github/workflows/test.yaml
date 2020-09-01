@@ -17,4 +17,5 @@ jobs:
         swagger-merger -i app/openapi/index.yaml -o app/openapi/merged.yaml
 
     - name: Test
+      run: |
         cd app && ./mvnw test
