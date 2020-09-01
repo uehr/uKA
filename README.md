@@ -5,8 +5,12 @@
 [Wiki](https://github.com/uehr/uKA/wiki)
 
 ### 開発ステータス
-- [x] AWSインフラ構築
-- [x] CI/CD環境（テスト when pushed）
-- [x] CI/CD環境（リリース when tagged）
+- [x] サーバレスインフラ構築（AWS）
+- [x] CI/CD テスト（GitHubActions）
+- [x] CI/CD リリース（GitHubActions）
+- [x] アクセス解析（GoogleAnalytics）
+- [x] TwitterAPI連携（SpringBoot）
+- [ ] エラー監視（Sentry）
 - [ ] API実装（SpringBoot）
+- [ ] テスト実装（SpringBoot）
 - [ ] フロントアプリ実装（Vue.js）
