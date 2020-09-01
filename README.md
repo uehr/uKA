@@ -2,6 +2,8 @@
 ![release](https://github.com/uehr/uKA/workflows/release/badge.svg)
 
 ### Twitterトレンド予測ゲーム | uKA
+[uka.uehr.co | 本番](https://uka.uehr.co)  
+[uka-stg.uehr.co | ステージング](https://uka-stg.uehr.co)  
 [Wiki](https://github.com/uehr/uKA/wiki)
 
 ### アーキテクチャ
