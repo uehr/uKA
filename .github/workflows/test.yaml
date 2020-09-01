@@ -10,9 +10,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Build and Test
+    - name: Build
       run: |
         sudo apt install -y nodejs npm
         sudo npm install -g swagger-merger
         swagger-merger -i app/openapi/index.yaml -o app/openapi/merged.yaml
+
+    - name: Test
         cd app && ./mvnw test
