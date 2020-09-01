@@ -4,6 +4,9 @@
 ### Twitterトレンド予測ゲーム | uKA
 [Wiki](https://github.com/uehr/uKA/wiki)
 
+### アーキテクチャ
+![uKAアーキテクチャ](https://user-images.githubusercontent.com/26696733/91910092-5a047c80-ece9-11ea-92e9-2f6891d52a38.png)
+
 ### 開発ステータス
 - [x] サーバレスインフラ構築（AWS）
 - [x] CI/CD テスト（GitHubActions）
