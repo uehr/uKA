@@ -19,3 +19,12 @@
 - [ ] API実装（SpringBoot）
 - [ ] テスト実装（SpringBoot）
 - [ ] フロントアプリ実装（Vue.js）
+
+### ローカル起動
+1. 以下4つの環境変数をセット
+    - UKA_TWITTER_ID
+    - UKA_TWITTER_SECRET
+    - UKA_TWITTER_TOKEN
+    - UKA_TWITTER_TOKEN_SECRET
+
+2. `docker-compose up`
