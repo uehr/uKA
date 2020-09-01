@@ -9,6 +9,15 @@
 ### アーキテクチャ
 ![uKAアーキテクチャ](https://user-images.githubusercontent.com/26696733/91910092-5a047c80-ece9-11ea-92e9-2f6891d52a38.png)
 
+### ローカル起動
+1. 以下4つの環境変数をセット
+    - UKA_TWITTER_ID
+    - UKA_TWITTER_SECRET
+    - UKA_TWITTER_TOKEN
+    - UKA_TWITTER_TOKEN_SECRET
+
+2. `docker-compose up`
+
 ### 開発ステータス
 - [x] サーバレスインフラ構築（AWS）
 - [x] CI/CD テスト（GitHubActions）
@@ -19,12 +28,3 @@
 - [ ] API実装（SpringBoot）
 - [ ] テスト実装（SpringBoot）
 - [ ] フロントアプリ実装（Vue.js）
-
-### ローカル起動
-1. 以下4つの環境変数をセット
-    - UKA_TWITTER_ID
-    - UKA_TWITTER_SECRET
-    - UKA_TWITTER_TOKEN
-    - UKA_TWITTER_TOKEN_SECRET
-
-2. `docker-compose up`
